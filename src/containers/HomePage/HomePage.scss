@@ -1,0 +1,55 @@
+.cities{
+  max-width: 1170px;
+  margin: 50px auto;
+  width: 100%;
+  .cities__items{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+    .cities__item{
+      width: 25%;
+      padding: 0 10px;
+      box-sizing: border-box;
+      .cities__img--wrap{
+        transition: .3s;
+        position: relative;
+        margin-bottom: 20px;
+        overflow: hidden;
+        height: 200px;
+        border: 1px solid #ccc;
+        .cities__img {
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          height: 100%;
+        }
+        .phones__link{
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: rgba(0,0,0,0);
+          -webkit-transition: .3s;
+          -o-transition: .3s;
+          transition: .3s;
+        }
+        p{
+          transform: translateY(0);
+          margin: 0;
+          transition: .3s;
+          text-align: center;
+          color: #fff;
+        }
+        &:hover{
+          p{
+            transform: translateY(-50px);
+          }
+          .phones__link{
+            background-color: rgba(0,0,0,.5);
+          }
+        }
+      }
+    }
+  }
+}
