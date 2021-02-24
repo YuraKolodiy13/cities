@@ -36,7 +36,6 @@ const mapStateToProps = state => {
   }
 };
 
-
 const MapDispatchToProps = {
   fetchCities
 };
