@@ -5,11 +5,11 @@ import {
   FETCH_CITY_CATEGORY_ERROR,
   FETCH_CITY_CATEGORY_SUCCESS,
   FETCH_CITY_CATEGOTY_START,
-  FETCH_CITY_ERROR,
+  FETCH_CITY_ERROR, FETCH_CITY_PHOTOS_ERROR, FETCH_CITY_PHOTOS_START, FETCH_CITY_PHOTOS_SUCCESS,
   FETCH_CITY_START,
   FETCH_CITY_SUCCESS
 } from "./actionType";
-import {fetchCitiesApi} from "../api";
+import {fetchCitiesApi, fetchCitiesPhotosApi} from "../api";
 
 export const fetchCities = () => async dispatch => {
   dispatch({
@@ -17,7 +17,6 @@ export const fetchCities = () => async dispatch => {
   });
 
   try {
-    console.log(43, 333)
     const cities = await fetchCitiesApi();
     dispatch({
       type: FETCH_CITIES_SUCCESS,
@@ -50,6 +49,29 @@ export const fetchCity = cityName => {
     }catch (e) {
       dispatch({
         type: FETCH_CITY_ERROR,
+        payload: e,
+        error: true
+      });
+    }
+  }
+};
+
+export const fetchCityPhoto = cityName => {
+  return async dispatch => {
+    dispatch({
+      type: FETCH_CITY_PHOTOS_START
+    });
+
+    try {
+      let photos = await fetchCitiesPhotosApi(cityName);
+      dispatch({
+        type: FETCH_CITY_PHOTOS_SUCCESS,
+        payload: photos
+      })
+
+    }catch (e) {
+      dispatch({
+        type: FETCH_CITY_PHOTOS_ERROR,
         payload: e,
         error: true
       });

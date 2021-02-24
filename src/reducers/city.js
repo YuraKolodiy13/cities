@@ -5,7 +5,7 @@ import {
   FETCH_CITY_CATEGORY_ERROR,
   FETCH_CITY_CATEGORY_SUCCESS,
   FETCH_CITY_CATEGOTY_START,
-  FETCH_CITY_ERROR,
+  FETCH_CITY_ERROR, FETCH_CITY_PHOTOS_SUCCESS,
   FETCH_CITY_START,
   FETCH_CITY_SUCCESS
 } from "../actions/actionType";
@@ -13,6 +13,7 @@ import {
 const initialState = {
   cities: [],
   city: {},
+  cityAddInfo: {},
   category: [],
   loading: true
 };
@@ -47,6 +48,11 @@ const city = (state = initialState, action) => {
         ...state,
         city: action.payload,
         loading: false
+      };
+    case FETCH_CITY_PHOTOS_SUCCESS:
+      return {
+        ...state,
+        cityAddInfo: action.payload,
       };
     case FETCH_CITY_ERROR:
       return {

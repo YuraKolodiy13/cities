@@ -13,7 +13,6 @@ class HomePage extends Component{
 
   componentDidMount(){
     this.props.fetchCities();
-
   }
 
   render(){
@@ -22,7 +21,7 @@ class HomePage extends Component{
     }
     return (
       <div>
-        <Categories cities={this.props.cities}/>
+        {/*<Categories cities={this.props.cities}/>*/}
         <CitiesList cities={this.props.cities}/>
       </div>
     );
